@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BSM Steel Traders - Steel and Building Materials">
+  <title>BSM Steel Traders | Steel & Building Materials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#0b1220;--navy2:#111c31;--gold:#f5b400;--red:#e21d25;--light:#f6f7f9;--text:#172033;--muted:#647084;--white:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:21px}
+    .brand-mark{display:inline-flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;font-style:italic;letter-spacing:-3px}
+    .brand-mark span:nth-child(1),.brand-mark span:nth-child(3){color:var(--gold)}
+    .brand-mark span:nth-child(2){color:#ef2027;margin:0 2px}
+    nav{display:flex;gap:28px;color:#dce2eb;font-size:14px;font-weight:600}
+    nav a:hover{color:var(--gold)}
+    .menu{display:none;color:#fff;font-size:25px;background:none;border:0}
+    .hero{min-height:650px;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(5,10,19,.92),rgba(5,10,19,.55)),url("images/steel-stock.jpeg") center/cover}
+    .hero-content{padding:90px 0;color:#fff;max-width:760px}
+    .eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:13px;margin-bottom:14px}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.02;letter-spacing:-2.5px;margin-bottom:20px}
+    h1 span{color:var(--gold)}
+    .hero p{font-size:18px;color:#e5e9f0;max-width:650px;margin-bottom:30px}
+    .buttons{display:flex;gap:13px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:10px;font-weight:800;font-size:14px;transition:.2s}
+    .btn-primary{background:#20b957;color:#fff}.btn-primary:hover{transform:translateY(-2px)}
+    .btn-dark{background:#fff;color:var(--navy)}.btn-dark:hover{transform:translateY(-2px)}
+    section{padding:82px 0}
+    .section-head{text-align:center;margin-bottom:42px}
+    .section-head h2{font-size:36px;line-height:1.15;margin-bottom:10px}
+    .section-head p{color:var(--muted);max-width:650px;margin:auto}
+    .products{background:var(--light)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:#fff;border:1px solid #e7eaf0;border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(20,30,50,.06)}
+    .card img{width:100%;height:210px;object-fit:cover}
+    .card-body{padding:22px}
+    .card h3{font-size:20px;margin-bottom:7px}
+    .card p{color:var(--muted);font-size:14px;margin-bottom:16px}
+    .wa-link{display:inline-flex;color:#0a9f48;font-weight:800;font-size:14px}
+    .about{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+    .about-img{border-radius:20px;width:100%;height:460px;object-fit:cover;box-shadow:0 20px 50px rgba(10,20,35,.14)}
+    .about h2{font-size:38px;line-height:1.15;margin-bottom:18px}
+    .about p{color:var(--muted);margin-bottom:16px}
+    .ticks{display:grid;gap:12px;margin-top:22px}
+    .tick{display:flex;gap:10px;align-items:flex-start;font-weight:600}.tick b{color:var(--gold)}
+    .contact{background:var(--navy);color:#fff}
+    .contact .section-head p{color:#bfc8d6}
+    .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .contact-card{padding:25px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);border-radius:16px}
+    .contact-card small{display:block;color:#aeb8c8;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+    .contact-card strong{font-size:21px}
+    .contact-card a{color:#73e19b}
+    .cta{padding:30px;background:linear-gradient(135deg,#171f31,#0b1220);border-radius:20px;margin-top:28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .cta h3{font-size:24px}.cta p{color:#bfc8d6}
+    footer{background:#070c15;color:#9aa5b6;padding:25px 0;text-align:center;font-size:13px}
+    .float-wa{position:fixed;right:18px;bottom:18px;z-index:30;background:#20b957;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:25px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    @media(max-width:800px){
+      nav{display:none;position:absolute;top:74px;left:0;right:0;background:var(--navy);padding:20px;flex-direction:column;gap:18px}
+      nav.open{display:flex}.menu{display:block}
+      .grid,.about,.contact-grid{grid-template-columns:1fr}
+      .hero{min-height:590px}.about-img{height:330px}.cta{flex-direction:column;align-items:flex-start}
+      section{padding:65px 0}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <span class="brand-mark"><span>B</span><span>S</span><span>M</span></span>
+      <span>STEEL TRADERS</span>
+    </a>
+    <button class="menu" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    <nav>
+      <a href="#home">Home</a><a href="#products">Products</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="container hero-content">
+    <div class="eyebrow">BSM Steel Traders</div>
+    <h1>Steel & Building <span>Materials</span></h1>
+    <p>Reliable steel and building materials for your construction needs. Contact us on WhatsApp for product availability and current prices.</p>
+    <div class="buttons">
+      <a class="btn btn-primary" href="https://wa.me/923059439680?text=Assalam-o-Alaikum%2C%20I%20want%20to%20ask%20about%20your%20steel%20and%20building%20materials." target="_blank">💬 WhatsApp Us</a>
+      <a class="btn btn-dark" href="#products">View Products</a>
+    </div>
+  </div>
+</section>
+
+<section id="products" class="products">
+  <div class="container">
+    <div class="section-head">
+      <h2>Our Products</h2>
+      <p>Steel and essential building materials — ask us for availability and today's price.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <img src="images/steel-stock.jpeg" alt="Steel bars and reinforcement steel">
+        <div class="card-body"><h3>Steel / Sarya</h3><p>Reinforcement steel and construction steel for building projects.</p><a class="wa-link" href="https://wa.me/923059439680?text=I%20want%20the%20current%20price%20for%20Steel%2FSarya." target="_blank">WhatsApp for Price →</a></div>
+      </article>
+      <article class="card">
+        <img src="images/cement-stock.jpeg" alt="Cement bags in stock">
+        <div class="card-body"><h3>Cement</h3><p>Quality cement options for construction and finishing work.</p><a class="wa-link" href="https://wa.me/923009118297?text=I%20want%20the%20current%20price%20for%20Cement." target="_blank">WhatsApp for Price →</a></div>
+      </article>
+      <article class="card">
+        <img src="images/shop-front.jpeg" alt="BSM Steel Traders shop">
+        <div class="card-body"><h3>Building Materials</h3><p>Construction materials and steel products available through BSM Steel Traders.</p><a class="wa-link" href="https://wa.me/923059439680?text=I%20want%20to%20ask%20about%20available%20building%20materials." target="_blank">Ask on WhatsApp →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about">
+    <img class="about-img" src="images/shop-front.jpeg" alt="BSM Steel Traders storefront">
+    <div>
+      <div class="eyebrow">About BSM</div>
+      <h2>Your construction material partner.</h2>
+      <p>BSM Steel Traders deals in steel and building materials, serving customers looking for dependable construction supplies.</p>
+      <p>For the latest rates, stock and order inquiries, visit our shop or contact us directly on WhatsApp.</p>
+      <div class="ticks">
+        <div class="tick"><b>✓</b> Steel & reinforcement materials</div>
+        <div class="tick"><b>✓</b> Building material supplies</div>
+        <div class="tick"><b>✓</b> Quick WhatsApp inquiries</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-head">
+      <h2>Contact BSM Steel Traders</h2>
+      <p>Message us for prices, availability and product inquiries.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card"><small>Bilal Ali</small><strong><a href="tel:+923059439680">0305-9439680</a></strong></div>
+      <div class="contact-card"><small>Naqash Ali</small><strong><a href="tel:+923009118297">0300-9118297</a></strong></div>
+      <div class="contact-card" style="grid-column:1/-1">
+        <small>Shop Location</small>
+        <strong>Al Raheem Plaza, near Malik Plaza, Degree 2 College Road, Mandian, Abbottabad</strong>
+        <p style="color:#bfc8d6;margin-top:8px">
+          <a href="https://www.google.com/maps/search/?api=1&query=BSM%20Steel%20Traders%20Al%20Raheem%20Plaza%20near%20Malik%20Plaza%20Degree%202%20College%20Road%20Mandian%20Abbottabad" target="_blank">📍 Open location in Google Maps →</a>
+        </p>
+      </div>
+    </div>
+    <div class="cta">
+      <div><h3>Need today's steel price?</h3><p>Send us a WhatsApp message and ask for the current rate.</p></div>
+      <a class="btn btn-primary" href="https://wa.me/923059439680?text=Assalam-o-Alaikum%2C%20please%20send%20me%20today's%20steel%20and%20building%20material%20rates." target="_blank">💬 Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">© 2026 BSM Steel Traders — Steel & Building Materials</div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/923059439680?text=Assalam-o-Alaikum%2C%20I%20want%20to%20ask%20about%20your%20products." target="_blank" aria-label="WhatsApp">✆</a>
+<script>
+  document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.querySelector('nav').classList.remove('open')));
+</script>
+</body>
+</html>
